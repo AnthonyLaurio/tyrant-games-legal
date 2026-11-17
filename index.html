@@ -4,11 +4,18 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Tyrant Studios LLC</title>
-    <meta name="description" content="Tyrant Studios LLC is an independent game studio and the developer and publisher of Tyrant, a mobile strategy MMO for iOS and Android.">
+    <meta name="description" content="Tyrant Studios LLC is an independent game studio in Columbus, Ohio, and the developer and publisher of Tyrant, a mobile strategy MMO for iOS and Android.">
+    <meta name="theme-color" content="#0a0c10">
     <meta property="og:type" content="website">
     <meta property="og:site_name" content="Tyrant Studios LLC">
     <meta property="og:title" content="Tyrant Studios LLC">
     <meta property="og:description" content="Independent game studio and the developer and publisher of Tyrant, a mobile strategy MMO.">
+    <meta property="og:image" content="https://privacy.tyrant-games.com/assets/apple-touch-icon.png">
+    <link rel="icon" type="image/png" href="./assets/favicon.png">
+    <link rel="apple-touch-icon" href="./assets/apple-touch-icon.png">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@600;700;800&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
     <script type="application/ld+json">
     {
         "@context": "https://schema.org",
@@ -16,6 +23,7 @@
         "name": "Tyrant Studios LLC",
         "legalName": "Tyrant Studios LLC",
         "url": "https://privacy.tyrant-games.com/",
+        "logo": "https://privacy.tyrant-games.com/assets/apple-touch-icon.png",
         "email": "ant@tyrant-games.com",
         "telephone": "+1-909-378-6165",
         "address": {
@@ -31,146 +39,595 @@
     }
     </script>
     <style>
+        /* Palette follows the Tyrant app's "Dark Fortress" theme */
+        :root {
+            --bg-app: #0a0c10;
+            --bg-screen: #12141a;
+            --bg-card: #1a1c22;
+            --bg-surface: #22252c;
+            --border-dark: #2a2c32;
+            --border: #3a3c45;
+            --border-light: #4a4c58;
+            --gold-dark: #9a7030;
+            --gold: #c9a050;
+            --gold-light: #dab060;
+            --gold-bright: #eac070;
+            --steel: #7a8898;
+            --steel-light: #9aaab8;
+            --crimson: #aa4040;
+            --ember: #d9772b;
+            --text: #e8e4dc;
+            --text-2: #a8a498;
+            --text-3: #686860;
+            --display: 'Cinzel', Georgia, 'Times New Roman', serif;
+            --body: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+        }
+        * { box-sizing: border-box; }
+        html { scroll-behavior: smooth; }
         body {
-            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, sans-serif;
+            margin: 0;
+            font-family: var(--body);
             line-height: 1.6;
-            max-width: 800px;
+            color: var(--text);
+            background: var(--bg-app);
+            -webkit-font-smoothing: antialiased;
+        }
+        a { color: inherit; }
+        img { display: block; max-width: 100%; }
+        .wrap {
+            max-width: 1120px;
             margin: 0 auto;
-            padding: 32px 20px;
-            color: #333;
-            background-color: #fafafa;
+            padding: 0 24px;
         }
-        header {
-            border-bottom: 2px solid #1a1a2e;
-            padding-bottom: 16px;
-            margin-bottom: 24px;
+
+        /* Ornamental gold rule, used under headings */
+        .rule {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            color: var(--gold);
+            margin: 18px 0 0;
         }
-        header h1 {
-            color: #1a1a2e;
-            margin: 0;
-            font-size: 2.2em;
-            letter-spacing: -0.01em;
+        .rule::before, .rule::after {
+            content: "";
+            height: 1px;
+            width: 56px;
+            background: linear-gradient(90deg, transparent, var(--gold));
         }
-        header .tagline {
-            color: #666;
-            margin: 4px 0 0;
-            font-size: 1.1em;
+        .rule::after { background: linear-gradient(90deg, var(--gold), transparent); }
+        .rule svg { width: 12px; height: 12px; }
+        .center .rule { justify-content: center; }
+
+        /* ---------- Nav ---------- */
+        .nav {
+            position: absolute;
+            top: 0; left: 0; right: 0;
+            z-index: 10;
         }
-        h2 {
-            color: #1a1a2e;
-            margin-top: 36px;
+        .nav .wrap {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            height: 80px;
         }
-        h3 {
-            color: #1a1a2e;
-            margin: 0 0 6px;
-        }
-        a {
-            color: #1a1a2e;
-            font-weight: 600;
+        .brand {
+            display: flex;
+            align-items: center;
+            gap: 12px;
             text-decoration: none;
+            color: var(--text);
         }
-        a:hover {
-            text-decoration: underline;
+        .brand svg { width: 30px; height: 30px; flex: none; }
+        .brand span {
+            font-family: var(--display);
+            font-weight: 800;
+            font-size: 1.05rem;
+            letter-spacing: 0.2em;
         }
-        .card {
-            background-color: #f0f0f0;
-            padding: 18px 20px;
-            border-radius: 5px;
-            margin-top: 16px;
-        }
-        .card p {
-            margin: 6px 0;
-        }
-        .card ul {
-            padding-left: 20px;
-            margin: 10px 0 0;
-        }
-        .card li {
-            margin-bottom: 6px;
-        }
-        .meta {
-            color: #666;
-            font-size: 0.95em;
-        }
-        dl {
-            margin: 0;
-        }
-        dt {
+        .brand span b { color: var(--gold); font-weight: 800; }
+        .nav-links { display: flex; gap: 32px; }
+        .nav-links a {
+            color: var(--text-2);
+            text-decoration: none;
+            font-size: 0.78rem;
             font-weight: 600;
-            color: #1a1a2e;
-            margin-top: 10px;
+            letter-spacing: 0.16em;
+            text-transform: uppercase;
+            transition: color .15s;
         }
-        dt:first-child {
-            margin-top: 0;
+        .nav-links a:hover { color: var(--gold-light); }
+
+        /* ---------- Hero ---------- */
+        .hero {
+            position: relative;
+            overflow: hidden;
+            background:
+                radial-gradient(ellipse 45% 60% at 74% 48%, rgba(217,119,43,0.32), transparent 70%),
+                radial-gradient(ellipse 70% 50% at 50% 100%, rgba(170,64,64,0.16), transparent 70%),
+                linear-gradient(180deg, #0d0f14 0%, var(--bg-screen) 55%, var(--bg-app) 100%);
+            padding: 150px 0 110px;
+            border-bottom: 1px solid var(--border-dark);
         }
-        dd {
-            margin: 2px 0 0;
+        .hero .skyline {
+            position: absolute;
+            left: 0; right: 0; bottom: 0;
+            width: 100%;
+            height: 180px;
+            opacity: 0.9;
+            pointer-events: none;
         }
+        .hero-grid {
+            position: relative;
+            display: grid;
+            grid-template-columns: 1.15fr 0.85fr;
+            align-items: center;
+            gap: 48px;
+        }
+        .eyebrow {
+            display: inline-block;
+            font-size: 0.74rem;
+            font-weight: 700;
+            letter-spacing: 0.24em;
+            text-transform: uppercase;
+            color: var(--gold);
+        }
+        .hero h1 {
+            font-family: var(--display);
+            font-weight: 800;
+            font-size: clamp(2.3rem, 5.4vw, 4rem);
+            line-height: 1.08;
+            letter-spacing: 0.03em;
+            text-transform: uppercase;
+            margin: 18px 0 0;
+            text-shadow: 0 2px 30px rgba(0,0,0,0.6);
+        }
+        .hero h1 em {
+            font-style: normal;
+            background: linear-gradient(180deg, var(--gold-bright), var(--gold) 55%, var(--gold-dark));
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+        }
+        .hero .rule { margin: 22px 0 22px; }
+        .hero p.lead {
+            font-size: 1.12rem;
+            color: var(--text-2);
+            max-width: 520px;
+            margin: 0 0 34px;
+        }
+        .btns { display: flex; flex-wrap: wrap; gap: 14px; }
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            padding: 14px 26px;
+            border-radius: 6px;
+            font-weight: 700;
+            font-size: 0.85rem;
+            letter-spacing: 0.12em;
+            text-transform: uppercase;
+            text-decoration: none;
+            transition: transform .15s, background .15s, border-color .15s, color .15s;
+        }
+        .btn:hover { transform: translateY(-1px); }
+        .btn-gold {
+            background: linear-gradient(180deg, var(--gold-light), var(--gold) 50%, var(--gold-dark));
+            color: var(--bg-app);
+            border: 1px solid var(--gold-bright);
+            box-shadow: 0 8px 24px -8px rgba(201,160,80,0.55), inset 0 1px 0 rgba(255,255,255,0.3);
+        }
+        .btn-steel {
+            border: 1px solid var(--border-light);
+            background: rgba(26,28,34,0.7);
+            color: var(--text);
+        }
+        .btn-steel:hover { border-color: var(--gold); color: var(--gold-light); }
+        .hero-art {
+            position: relative;
+            justify-self: center;
+            width: min(400px, 100%);
+        }
+        .hero-art::before {
+            content: "";
+            position: absolute;
+            inset: -12%;
+            background: radial-gradient(circle, rgba(217,119,43,0.45), transparent 62%);
+            filter: blur(10px);
+        }
+        .hero-art img {
+            position: relative;
+            width: 100%;
+            height: auto;
+            border-radius: 18%;
+            box-shadow: 0 30px 70px -20px rgba(0,0,0,0.9);
+        }
+
+        /* ---------- Sections ---------- */
+        section { padding: 100px 0; }
+        .section-head { margin-bottom: 48px; }
+        .section-head.center { text-align: center; }
+        .section-head h2 {
+            font-family: var(--display);
+            font-weight: 700;
+            font-size: clamp(1.7rem, 3.4vw, 2.3rem);
+            text-transform: uppercase;
+            letter-spacing: 0.06em;
+            color: var(--text);
+            margin: 12px 0 0;
+            line-height: 1.2;
+        }
+
+        /* Framed panel, echoing the in-game card style */
+        .panel {
+            position: relative;
+            background: linear-gradient(180deg, var(--bg-card), #16181d);
+            border: 1px solid var(--border);
+            border-radius: 10px;
+            box-shadow: inset 0 1px 0 rgba(255,255,255,0.04);
+        }
+        .panel::before {
+            content: "";
+            position: absolute;
+            top: -1px; left: 24px; right: 24px;
+            height: 2px;
+            background: linear-gradient(90deg, transparent, var(--gold), transparent);
+            opacity: 0.7;
+        }
+
+        /* Pillars */
+        .pillars {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 22px;
+        }
+        .pillar { padding: 32px 28px 30px; }
+        .pillar .icon {
+            width: 52px;
+            height: 52px;
+            display: grid;
+            place-items: center;
+            border-radius: 10px;
+            background: radial-gradient(circle at 50% 30%, #2e2a22, var(--bg-surface));
+            border: 1px solid var(--gold-dark);
+            color: var(--gold);
+            margin-bottom: 20px;
+        }
+        .pillar .icon svg { width: 26px; height: 26px; }
+        .pillar h3 {
+            margin: 0 0 10px;
+            font-size: 0.95rem;
+            font-weight: 700;
+            letter-spacing: 0.12em;
+            text-transform: uppercase;
+            color: var(--gold-light);
+        }
+        .pillar p { margin: 0; color: var(--text-2); font-size: 0.97rem; }
+
+        /* Featured game */
+        .games {
+            background:
+                radial-gradient(ellipse 60% 50% at 20% 50%, rgba(170,64,64,0.10), transparent 70%),
+                var(--bg-screen);
+            border-top: 1px solid var(--border-dark);
+            border-bottom: 1px solid var(--border-dark);
+        }
+        .game {
+            display: grid;
+            grid-template-columns: 0.9fr 1.1fr;
+            overflow: hidden;
+        }
+        .game-art {
+            position: relative;
+            min-height: 380px;
+            background: url('./assets/tyrant-art.webp') center 30% / cover no-repeat;
+        }
+        .game-art::after {
+            content: "";
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(90deg, transparent 55%, var(--bg-card));
+        }
+        .game-body { padding: 44px 44px 40px; }
+        .tags { display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 18px; }
+        .tag {
+            font-size: 0.68rem;
+            font-weight: 700;
+            letter-spacing: 0.14em;
+            text-transform: uppercase;
+            padding: 5px 11px;
+            border-radius: 4px;
+            border: 1px solid var(--gold-dark);
+            color: var(--gold-light);
+            background: rgba(201,160,80,0.08);
+        }
+        .tag.steel {
+            border-color: var(--border-light);
+            color: var(--steel-light);
+            background: rgba(122,136,152,0.08);
+        }
+        .game-body h3 {
+            font-family: var(--display);
+            font-weight: 800;
+            font-size: 2.4rem;
+            letter-spacing: 0.14em;
+            text-transform: uppercase;
+            margin: 0 0 12px;
+            color: var(--text);
+        }
+        .game-body p { margin: 0 0 28px; color: var(--text-2); }
+        .game-links {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+            border-top: 1px solid var(--border);
+        }
+        .game-links li { border-bottom: 1px solid var(--border); }
+        .game-links a {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 12px;
+            padding: 14px 2px;
+            text-decoration: none;
+            font-weight: 600;
+            color: var(--text);
+            transition: color .15s, padding .15s;
+        }
+        .game-links a:hover { color: var(--gold-light); padding-left: 6px; }
+        .game-links small { font-weight: 400; color: var(--text-3); }
+        .game-links a:hover small { color: var(--gold); }
+
+        /* Company info */
+        .info {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 22px;
+        }
+        .info-card { padding: 32px 32px 26px; }
+        .info-card h3 {
+            margin: 0 0 20px;
+            font-size: 0.74rem;
+            font-weight: 700;
+            letter-spacing: 0.22em;
+            text-transform: uppercase;
+            color: var(--gold);
+        }
+        dl { margin: 0; }
+        .row {
+            display: grid;
+            grid-template-columns: 130px 1fr;
+            gap: 12px;
+            padding: 12px 0;
+            border-top: 1px solid var(--border-dark);
+        }
+        .row:first-child { border-top: 0; padding-top: 0; }
+        dt {
+            color: var(--text-3);
+            font-size: 0.74rem;
+            font-weight: 700;
+            letter-spacing: 0.12em;
+            text-transform: uppercase;
+            padding-top: 3px;
+        }
+        dd { margin: 0; color: var(--text); font-weight: 500; }
+        dd a { text-decoration: none; color: var(--gold-light); font-weight: 600; }
+        dd a:hover { color: var(--gold-bright); text-decoration: underline; }
+
+        /* Footer */
         footer {
-            margin-top: 48px;
-            padding-top: 16px;
-            border-top: 1px solid #ddd;
-            color: #666;
-            font-size: 0.9em;
+            background: #07080b;
+            border-top: 1px solid var(--border-dark);
+            color: var(--text-2);
+            padding: 56px 0 40px;
+            font-size: 0.92rem;
         }
+        .foot-top {
+            display: flex;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            gap: 28px;
+            padding-bottom: 32px;
+            border-bottom: 1px solid var(--border-dark);
+        }
+        footer address { font-style: normal; line-height: 1.75; margin-top: 16px; }
+        footer address a { color: var(--text); text-decoration: none; }
+        footer address a:hover { color: var(--gold-light); }
+        footer nav { display: flex; flex-wrap: wrap; gap: 26px; align-items: flex-start; }
         footer nav a {
-            margin-right: 16px;
+            text-decoration: none;
+            color: var(--text);
+            font-size: 0.78rem;
+            font-weight: 600;
+            letter-spacing: 0.14em;
+            text-transform: uppercase;
         }
-        footer p {
-            margin: 10px 0 0;
+        footer nav a:hover { color: var(--gold-light); }
+        .copy { padding-top: 24px; font-size: 0.84rem; color: var(--text-3); }
+
+        /* Responsive */
+        @media (max-width: 900px) {
+            .hero-grid { grid-template-columns: 1fr; }
+            .hero-art { display: none; }
+            .pillars, .info { grid-template-columns: 1fr; }
+            .game { grid-template-columns: 1fr; }
+            .game-art { min-height: 300px; }
+            .game-art::after { background: linear-gradient(180deg, transparent 55%, var(--bg-card)); }
+        }
+        @media (max-width: 600px) {
+            .wrap { padding: 0 16px; }
+            .nav-links { display: none; }
+            .hero { padding: 116px 0 80px; }
+            section { padding: 68px 0; }
+            .game-body { padding: 28px 22px; }
+            .game-body h3 { font-size: 1.9rem; }
+            .info-card { padding: 26px 20px 20px; }
+            .row { grid-template-columns: 1fr; gap: 2px; }
         }
     </style>
 </head>
 <body>
-    <header>
-        <h1>Tyrant Studios LLC</h1>
-        <p class="tagline">Independent game studio</p>
+    <svg width="0" height="0" style="position:absolute" aria-hidden="true">
+        <defs>
+            <symbol id="crown" viewBox="0 0 32 32">
+                <path d="M5 23 L7 10 L12.5 15.5 L16 7 L19.5 15.5 L25 10 L27 23 Z" fill="#c9a050"/>
+                <rect x="5" y="24.5" width="22" height="3" rx="1" fill="#9a7030"/>
+                <path d="M16 15 l2 2.5 -2 2.5 -2 -2.5z" fill="#aa4040"/>
+            </symbol>
+            <symbol id="diamond" viewBox="0 0 12 12">
+                <path d="M6 0 L12 6 L6 12 L0 6 Z" fill="currentColor"/>
+            </symbol>
+        </defs>
+    </svg>
+
+    <header class="nav">
+        <div class="wrap">
+            <a class="brand" href="./index.html" aria-label="Tyrant Studios home">
+                <svg aria-hidden="true"><use href="#crown"/></svg>
+                <span><b>TYRANT</b> STUDIOS</span>
+            </a>
+            <nav class="nav-links">
+                <a href="#games">Games</a>
+                <a href="#company">Company</a>
+                <a href="./contact.html">Contact</a>
+            </nav>
+        </div>
     </header>
 
+    <div class="hero">
+        <svg class="skyline" viewBox="0 0 1200 180" preserveAspectRatio="xMidYMax slice" aria-hidden="true">
+            <path fill="#0d0f14" d="M0 180V120l40-6v-20h10v-12h8v12h10v20l60 10 30-30h12V70h-8V58h8V40h6v-14l6-14 6 14v14h6v18h8v12h-8v24h12l40 30 70-8v-30h10v-10h8v10h8v-10h8v10h10v30l80 6 50-40 60 30h30v-36h-8V96h8V76h-8V64h10v8h8v-8h10v8h8v-8h10v12h-8v20h8v16h-8v36h40l70-26 60 20v-22h10v-10h8v10h8v-10h8v10h10v22l80 10 40-20h20v-40h-6v-12h6V70h6v-14l6-14 6 14v14h6v28h6v12h-6v40l60 4v66z"/>
+            <path fill="#0a0c10" d="M0 180v-30l120-10 160 16 200-14 180 12 220-16 180 14 140-8v36z"/>
+        </svg>
+        <div class="wrap hero-grid">
+            <div>
+                <span class="eyebrow">Independent Game Studio &middot; Columbus, Ohio</span>
+                <h1>We build worlds worth <em>conquering</em></h1>
+                <div class="rule"><svg><use href="#diamond"/></svg></div>
+                <p class="lead">Tyrant Studios LLC develops and publishes online strategy games for mobile, built around fair play, long-term progression, and community.</p>
+                <div class="btns">
+                    <a class="btn btn-gold" href="#games">Explore Tyrant</a>
+                    <a class="btn btn-steel" href="./contact.html">Get in Touch</a>
+                </div>
+            </div>
+            <div class="hero-art">
+                <img src="./assets/tyrant-framed.webp" width="560" height="560" alt="Tyrant game artwork: a crowned king with a sword before a burning castle">
+            </div>
+        </div>
+    </div>
+
     <main>
-        <p>Tyrant Studios LLC is an independent video game studio that develops and publishes games for mobile platforms. We build online strategy games with a focus on fair play, long-term progression, and community.</p>
+        <section id="about">
+            <div class="wrap">
+                <div class="section-head center">
+                    <span class="eyebrow">What We Do</span>
+                    <h2>Strategy Games Built to Last</h2>
+                    <div class="rule"><svg><use href="#diamond"/></svg></div>
+                </div>
+                <div class="pillars">
+                    <div class="panel pillar">
+                        <div class="icon">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 21h18"/><path d="M5 21V8l3 2V6l4 3 4-3v4l3-2v13"/><path d="M10 21v-4h4v4"/></svg>
+                        </div>
+                        <h3>Persistent Worlds</h3>
+                        <p>Massively multiplayer strategy where castles, armies, and alliances grow over months, not minutes.</p>
+                    </div>
+                    <div class="panel pillar">
+                        <div class="icon">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3l8 3v6c0 4.5-3.4 8.3-8 9-4.6-.7-8-4.5-8-9V6z"/><path d="M9 12l2 2 4-4"/></svg>
+                        </div>
+                        <h3>Fair Play First</h3>
+                        <p>Clear rules, active enforcement, and systems designed so that skill and strategy decide the outcome.</p>
+                    </div>
+                    <div class="panel pillar">
+                        <div class="icon">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 3v8a7 7 0 0 0 14 0V3"/><path d="M5 3l3 3 4-3 4 3 3-3"/><path d="M12 18v3"/><path d="M8 21h8"/></svg>
+                        </div>
+                        <h3>Built With Players</h3>
+                        <p>We develop alongside our community, shipping patches and features shaped by player feedback.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
 
-        <h2>Our Games</h2>
-        <div class="card">
-            <h3>Tyrant</h3>
-            <p class="meta">Mobile strategy MMO &middot; iOS and Android</p>
-            <p>Build your castle, train your armies, recruit heroes, and battle for territory alongside your guild in a persistent online world.</p>
-            <ul>
-                <li><a href="./contact.html">Contact &amp; Support</a> — email and Discord</li>
-                <li><a href="./privacy-policy.html">Privacy Policy</a></li>
-                <li><a href="./terms.html">Terms and Conditions</a></li>
-            </ul>
-        </div>
+        <section id="games" class="games">
+            <div class="wrap">
+                <div class="section-head center">
+                    <span class="eyebrow">Our Games</span>
+                    <h2>Now Playing</h2>
+                    <div class="rule"><svg><use href="#diamond"/></svg></div>
+                </div>
+                <article class="panel game">
+                    <div class="game-art" role="img" aria-label="Tyrant game artwork"></div>
+                    <div class="game-body">
+                        <div class="tags">
+                            <span class="tag">Strategy MMO</span>
+                            <span class="tag steel">iOS</span>
+                            <span class="tag steel">Android</span>
+                        </div>
+                        <h3>Tyrant</h3>
+                        <p>Build your castle, train your armies, recruit heroes, and battle for territory alongside your guild in a persistent online world.</p>
+                        <ul class="game-links">
+                            <li><a href="./contact.html">Contact &amp; Support <small>Email &amp; Discord &rarr;</small></a></li>
+                            <li><a href="./privacy-policy.html">Privacy Policy <small>&rarr;</small></a></li>
+                            <li><a href="./terms.html">Terms and Conditions <small>&rarr;</small></a></li>
+                        </ul>
+                    </div>
+                </article>
+            </div>
+        </section>
 
-        <h2>Company Information</h2>
-        <div class="card">
-            <dl>
-                <dt>Legal name</dt>
-                <dd>Tyrant Studios LLC</dd>
-                <dt>Business type</dt>
-                <dd>Limited Liability Company</dd>
-                <dt>What we do</dt>
-                <dd>Video game development and publishing</dd>
-                <dt>Address</dt>
-                <dd>2025 Riverside Drive STE 35519<br>Columbus, OH 43221<br>United States</dd>
-                <dt>Phone</dt>
-                <dd><a href="tel:+19093786165">(909) 378-6165</a></dd>
-                <dt>Email</dt>
-                <dd><a href="mailto:ant@tyrant-games.com">ant@tyrant-games.com</a></dd>
-                <dt>Community</dt>
-                <dd><a href="https://discord.gg/Ut5xkF367a">Discord</a></dd>
-            </dl>
-        </div>
+        <section id="company">
+            <div class="wrap">
+                <div class="section-head center">
+                    <span class="eyebrow">Company Information</span>
+                    <h2>Tyrant Studios LLC</h2>
+                    <div class="rule"><svg><use href="#diamond"/></svg></div>
+                </div>
+                <div class="info">
+                    <div class="panel info-card">
+                        <h3>Business Details</h3>
+                        <dl>
+                            <div class="row"><dt>Legal name</dt><dd>Tyrant Studios LLC</dd></div>
+                            <div class="row"><dt>Entity type</dt><dd>Ohio limited liability company</dd></div>
+                            <div class="row"><dt>Industry</dt><dd>Video game development and publishing</dd></div>
+                            <div class="row"><dt>Products</dt><dd>Tyrant (iOS and Android)</dd></div>
+                        </dl>
+                    </div>
+                    <div class="panel info-card">
+                        <h3>Contact</h3>
+                        <dl>
+                            <div class="row"><dt>Address</dt><dd>2025 Riverside Drive STE 35519<br>Columbus, OH 43221<br>United States</dd></div>
+                            <div class="row"><dt>Phone</dt><dd><a href="tel:+19093786165">(909) 378-6165</a></dd></div>
+                            <div class="row"><dt>Email</dt><dd><a href="mailto:ant@tyrant-games.com">ant@tyrant-games.com</a></dd></div>
+                            <div class="row"><dt>Community</dt><dd><a href="https://discord.gg/Ut5xkF367a">Discord</a></dd></div>
+                        </dl>
+                    </div>
+                </div>
+            </div>
+        </section>
     </main>
 
     <footer>
-        <nav>
-            <a href="./contact.html">Contact</a>
-            <a href="./privacy-policy.html">Privacy Policy</a>
-            <a href="./terms.html">Terms and Conditions</a>
-        </nav>
-        <p>Tyrant Studios LLC &middot; 2025 Riverside Drive STE 35519, Columbus, OH 43221 &middot; (909) 378-6165</p>
-        <p>&copy; 2026 Tyrant Studios LLC. All rights reserved. Tyrant is developed and published by Tyrant Studios LLC.</p>
+        <div class="wrap">
+            <div class="foot-top">
+                <div>
+                    <a class="brand" href="./index.html" aria-label="Tyrant Studios home">
+                        <svg aria-hidden="true"><use href="#crown"/></svg>
+                        <span><b>TYRANT</b> STUDIOS</span>
+                    </a>
+                    <address>
+                        Tyrant Studios LLC<br>
+                        2025 Riverside Drive STE 35519, Columbus, OH 43221<br>
+                        <a href="tel:+19093786165">(909) 378-6165</a> &middot; <a href="mailto:ant@tyrant-games.com">ant@tyrant-games.com</a>
+                    </address>
+                </div>
+                <nav>
+                    <a href="./contact.html">Contact</a>
+                    <a href="./privacy-policy.html">Privacy Policy</a>
+                    <a href="./terms.html">Terms</a>
+                </nav>
+            </div>
+            <p class="copy">&copy; 2026 Tyrant Studios LLC. All rights reserved. Tyrant is developed and published by Tyrant Studios LLC.</p>
+        </div>
     </footer>
 </body>
 </html>
