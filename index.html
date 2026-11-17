@@ -117,7 +117,7 @@
             text-decoration: none;
             color: var(--text);
         }
-        .brand svg { width: 30px; height: 30px; flex: none; }
+        .brand .crest { width: 38px; height: 38px; flex: none; filter: drop-shadow(0 2px 6px rgba(0,0,0,0.6)); }
         .brand span {
             font-family: var(--display);
             font-weight: 800;
@@ -467,11 +467,6 @@
 <body>
     <svg width="0" height="0" style="position:absolute" aria-hidden="true">
         <defs>
-            <symbol id="crown" viewBox="0 0 32 32">
-                <path d="M5 23 L7 10 L12.5 15.5 L16 7 L19.5 15.5 L25 10 L27 23 Z" fill="#c9a050"/>
-                <rect x="5" y="24.5" width="22" height="3" rx="1" fill="#9a7030"/>
-                <path d="M16 15 l2 2.5 -2 2.5 -2 -2.5z" fill="#aa4040"/>
-            </symbol>
             <symbol id="diamond" viewBox="0 0 12 12">
                 <path d="M6 0 L12 6 L6 12 L0 6 Z" fill="currentColor"/>
             </symbol>
@@ -481,7 +476,7 @@
     <header class="nav">
         <div class="wrap">
             <a class="brand" href="./index.html" aria-label="Tyrant Studios home">
-                <svg aria-hidden="true"><use href="#crown"/></svg>
+                <img class="crest" src="./assets/crown.png" width="128" height="128" alt="">
                 <span><b>TYRANT</b> STUDIOS</span>
             </a>
             <nav class="nav-links">
@@ -611,7 +606,7 @@
             <div class="foot-top">
                 <div>
                     <a class="brand" href="./index.html" aria-label="Tyrant Studios home">
-                        <svg aria-hidden="true"><use href="#crown"/></svg>
+                        <img class="crest" src="./assets/crown.png" width="128" height="128" alt="">
                         <span><b>TYRANT</b> STUDIOS</span>
                     </a>
                     <address>
